@@ -68,26 +68,63 @@ class card:
 
 #M-02
 
-class naomiPrisella_M2:
-    def __init__(self, noInduk, nama, jenisKelamin, noHp):
+class NaomiPrisella:
+    def _init_(self, noInduk, nama, jenisKelamin, noHp):
         self.noInduk = noInduk
         self.nama = nama
         self.jenisKelamin = jenisKelamin
         self.noHp = noHp
 
-class mahasiswa_M2:
-    def __init__(self, noInduk, nama, jenisKelamin, noHp, email):
-        super().__init__(noInduk, nama, jenisKelamin, noHp)
-        self.email = email
-
+class mahasiswa_m2(NaomiPrisella):
+    def _init_(self,noInduk, nama, jenisKelamin, noHp):
+        super()._init_(noInduk, nama, jenisKelamin, noHp)
     def absensi(self):
-        print("Nomor Induk Mahasiswa (NIM) :",self.noInduk)
-        print("Nama Mahasiswa :",self.nama)
+        print("| {:<30}:{:>40} |".format("NIM",self.nama))
+        print("| {:<30}:{:>40} |".format("Nama Mahasiswa",self.noHp))
 
-class dosen_M2:
-    def __init__(self, noInduk, nama, jenisKelamin, noHp):
-        super().__init__(noInduk, nama, jenisKelamin, noHp)
-
+class dosen_m2(NaomiPrisella):
+    def _init_(self,noInduk,nama,jenisKelamin,noHp):
+        super()._init_(noInduk,nama,jenisKelamin,noHp)
     def perkenalan(self):
-        print("Nama Dosen : ",self.nama)
-        print("Nomor HP   :", self.noHp)
+        print("| {:<30}:{:>40} |".format("Nama Dosen",self.nama))
+        print("| {:<30}:{:>40} |".format("No. HP",self.noHp))
+
+class RyanRussell:
+    def _init_(self,kode,nama,qty):
+        self.kode = kode
+        self.nama = nama
+        self.qty = qty
+        self.props = [self.kode, self.nama, self.qty]
+        self.traits = ["Kode Produk", "Nama Produk", "Qty Produk"]
+    def laporan(self):
+        for i in range(len(self.props)):
+            print("| {:<28} : {:<40} |".format(self.traits[i],self.props[i]))
+        print("="*75)
+
+class handSanitizer(RyanRussell):
+    def _init_(self,kode,qty,mili):
+        super()._init_(kode, "Hand Sanitizer", qty)
+        self.mili = mili
+        self.props.append(mili)
+        self.traits.append("Isi Produk (ml)")
+
+class banMobil(RyanRussell):
+    def _init_(self,kode,qty,diameter):
+        super()._init_(kode,"Ban Mobil",qty)
+        self.diameter = diameter
+        self.props.append(diameter)
+        self.traits.append("Diameter Produk (cm)")
+
+class buahBuahan(RyanRussell):
+    def _init_(self,kode,qty,asal):
+        super()._init_(kode,"Buah-Buahan",qty)
+        self.asal = asal
+        self.props.append(asal)
+        self.traits.append("Asal Produk")
+
+class botolMinumBayi(RyanRussell):
+    def _init_(self,kode,qty,mili):
+        super()._init_(kode, "Botol Minuman Bayi", qty)
+        self.mili = mili
+        self.props.append(mili)
+        self.traits.append("Isi Produk (ml)")
