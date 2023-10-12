@@ -4,7 +4,7 @@ This repository contains my code for my Object Oriented Programming (OOP) course
 
 Formats for each file
 - `class_k` = contains every classes that are used for each meeting (labeled as #M[x])
-- `m[x]-task[y]` = _m[x]_ is the xth meeting of the course, and _task[y]_ is the yth task of the meeting
+- `m[x]_task[y]` = _m[x]_ is the xth meeting of the course, and _task[y]_ is the yth task of the meeting
 
 # topics for each meeting
 
