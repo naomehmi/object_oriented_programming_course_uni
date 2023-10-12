@@ -3,7 +3,7 @@
 This repository contains my code for my Object Oriented Programming (OOP) course in uni.
 
 Formats for each file
-- `class_k` = contains every classes that are used for each meeting (labeled as #M[x])
+- `class_k` = contains every class that is used for each meeting (labeled as #M[x] in the file)
 - `m[x]_task[y]` = _m[x]_ is the xth meeting of the course, and _task[y]_ is the yth task of the meeting
 
 # topics for each meeting
