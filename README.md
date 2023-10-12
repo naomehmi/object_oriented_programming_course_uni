@@ -1,4 +1,4 @@
-# oop_sem3_praktek
+# object_oriented_programming_course_uni
 
 This repository contains my code for my Object Oriented Programming (OOP) course in uni.
 
