@@ -19,7 +19,7 @@ Formats for each file
 
 - inheritance and polymorphism (super classes and subclasses)
 - task 1 = making a parent class containing name, ID, and other general info to inherit those properties to the student and lecturer classes
-- task 2 = making a parent class class for a product, then inheriting those properties to make specific products, such as hand sanitizers, car wheels, bottles, etc
+- task 2 = making a parent class for a product (produk), then inheriting those properties to make specific products, such as hand sanitizers, car wheels, bottles, etc
 
 ## week 3 (m03)
 
