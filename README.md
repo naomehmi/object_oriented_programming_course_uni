@@ -20,9 +20,15 @@ notes
 ## week 2 (m02)
 
 - inheritance and polymorphism (super classes and subclasses)
-- task 1 = making a parent class containing name, ID, and other general info to inherit those properties to the student and lecturer classes
-- task 2 = making a parent class for a product (produk), then inheriting those properties to make specific products, such as hand sanitizers, car wheels, bottles, etc
+- task 1 = making a parent class containing name, ID, and other general info; where the 2 child classes then inehrit those properties
+- task 2 = making a parent class for a product (produk), then create classes for specific products, such as hand sanitizers, car wheels, bottles, etc that inherit properties and methods from the parent class
 
 ## week 3 (m03)
+
+- abstract classes (abc library, abstract properties, and abstract methods)
+- task 1 = creating 2 different child classes that inherit properties and methods from a parent class and an abstract class. The child classes both have a method with the same name but different outputs.
+- task 2 = making an abstract class that has 3 abstract properties and 1 abstract method, and a parent class containing 3 properties (name, phone number, fee); Then, 3 child classes are created to inherit all those properties and methods. After that, adding a unique property to each child class (for example, in the `MuridSD` class, the gender (`jenisKelamin`) property is added to it; in the `MuridSMP` class, the age (`umur`) property is added to it)
+
+## week 4 (m04)
 
 - not started yet
