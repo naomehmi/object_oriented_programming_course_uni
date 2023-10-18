@@ -1,6 +1,6 @@
 # object_oriented_programming_course_uni
 
-This repository contains my code for my Object Oriented Programming (OOP) course in uni.
+This repository contains my code for my Object Oriented Programming (OOP) course in uni. (in progress)
 
 notes
 - `class_k` = contains every class that is used for each meeting (labeled as _#M[x]_ in the file to separate classes used per meeting)
