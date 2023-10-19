@@ -238,3 +238,123 @@ class MuridSMA(Coconut, Banana):
     def cetakData(self):
         for i in range(len(self.data)):
             print("{:<20}:{:>15}".format(self.prompt[i],self.data[i]))
+            
+#M04
+
+class Parent:
+    def __init__(self, kode, nama, noHp):
+        if(self.cekKode(kode) and self.cekNama(nama) and self.cekNoHp(noHp)):
+            self.kode = kode
+            self.nama = nama
+            self.noHp = noHp
+            print("\nData berhasil diinput.")
+
+    def cekKode(self, kode):
+        try:
+            if not kode.isnumeric():
+                raise ValueError("Kode harus terdiri dari angka")
+            if len(kode) != 9:
+                raise ValueError("Kode harus memiliki panjang 9 karakter")
+            return True
+        except ValueError as e:
+            print(str(e))
+
+    def cekNama(self, nama):
+        try:
+            nama = nama.split()
+            for i in nama:
+                if not i.isalpha():
+                    raise ValueError("Nama hanya boleh terdiri dari huruf dan spasi")
+            return True
+        except ValueError as e:
+            print(str(e))
+
+    def cekNoHp(self, noHp):
+        try:
+            if noHp[0] != "+":
+                raise ValueError("No HP harus ada tanda '+' di awal")
+            if not noHp[1:].isnumeric():
+                raise ValueError("No HP hanya boleh terdiri dari angka")
+            if len(noHp) < 8 or len(noHp) > 15:
+                raise ValueError("No HP hanya boleh 8 sampai 15 karakter")            
+            return True
+        except ValueError as e:
+            print(str(e))
+
+    def cetak():
+        pass
+
+class DosenM4(Parent):
+    def __init__(self, nip, nama, noHp):
+        super().__init__(nip, nama, noHp)
+    def cetak(self):
+        print("NIP Dosen :",self.kode)
+        print("Nama Dosen :",self.nama)
+        print("No HP Dosen :",self.noHp)
+
+
+class MahasiswaM4(Parent):
+    def __init__(self, nim, nama, noHp):
+        super().__init__(nim, nama, noHp)
+    def cetak(self):
+        print("NIM Mahasiswa :",self.kode)
+        print("Nama Mahasiswa :",self.nama)
+        print("No HP Mahasiswa :",self.noHp)
+        
+class Murid:
+    def __init__(self, nama, jenisKel, tingkatan):
+        if(self.cekNama(nama) and self.cekJenisKel(jenisKel) and self.cekTingkatan(tingkatan)):
+            biaya = ["300.000", "500.000", "700.000", "1.000.000"]
+            jam = ["2", "2", "1", "1"]
+            tingkat = ["SD", "SMP", "SMA"]
+            if jenisKel == "L":
+                jenisKel = "Laki-laki"
+            else:
+                jenisKel = "Perempuan"
+
+            self.nama = nama
+            self.jenisKel = jenisKel
+            self.tingkatan = tingkatan
+            self.jamPengajaran = jam[tingkat.index(self.tingkatan)]
+            self.biayaLes = biaya[tingkat.index(self.tingkatan)]
+
+            print("\nData Siswa berhasil diinpput.\n")
+
+    def cekNama(self, nama):
+        try:
+            nama = nama.split()
+            for i in nama:
+                if not i.isalpha():
+                    raise ValueError("Nama hanya boleh terdiri dari huruf dan spasi")
+            return True
+        except ValueError as e:
+            print(str(e))
+
+    def cekJenisKel(self, jenisKel):
+        try:
+            if jenisKel not in ["P", "L"]:
+                raise ValueError("Jenis Kelamin hanya boleh 'P' atau 'L'")
+            return True
+        except ValueError as e:
+            print(str(e))
+
+    def cekTingkatan(self,tingkatan):
+        try:
+            if tingkatan not in ["SD", "SMP", "SMA"]:
+                raise ValueError("Tingkatan hanya boleh 'SD', 'SMP', dan 'SMA', mohon coba lagi.")
+            return True
+        except ValueError as e:
+            print(str(e))
+
+    def cetakKartu(self):
+        teks = {
+            "Nama Siswa" : self.nama,
+            "Jenis Kelamin" : self.jenisKel,
+            "Tingkatan" : self.tingkatan,
+            "Jam Pengajaran" : self.jamPengajaran + " jam",
+            "Biaya Les" : "Rp. " + self.biayaLes
+        }
+        print("="*40)
+        for x,y in teks.items():
+            print("| {:<15}:{:>20} |".format(x,y))
+        print("-"*40)
