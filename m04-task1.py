@@ -10,18 +10,18 @@ while True:
         print(str(e))
     
 if md == 'm':
-    a = input("Masukkan NIM mahasiswa   : ")
-    b = input("Masukkan nama mahasiswa  : ").title()
-    c = input("Masukkan no HP mahasiswa : ")
+    a = input("Masukkan NIM mahasiswa   : ").lstrip().rstrip()
+    b = input("Masukkan nama mahasiswa  : ").title().lstrip().rstrip()
+    c = input("Masukkan no HP mahasiswa : ").lstrip().rstrip()
     try:
         maha = MahasiswaM4(a,b,c)
         maha.cetak()
     except AttributeError:
         pass
 else:
-    a = input("Masukkan NIP dosen   : ")
-    b = input("Masukkan nama dosen  : ").title()
-    c = input("Masukkan no HP dosen : ")
+    a = input("Masukkan NIP dosen   : ").lstrip().rstrip()
+    b = input("Masukkan nama dosen  : ").title().lstrip().rstrip()
+    c = input("Masukkan no HP dosen : ").lstrip().rstrip()
     try:
         dos = DosenM4(a,b,c)
         dos.cetak()
