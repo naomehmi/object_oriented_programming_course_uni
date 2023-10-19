@@ -31,4 +31,9 @@ notes
 
 ### week 4 (m04)
 
-- not started yet
+- try and exception (ValueError, AttributeError, etc)
+- both tasks require users to input data (such as names, phone numbers, genders, etc), then the program prevents inputs that don't meet the conditions (e.g. a person's name containing number and symbols)
+
+### week 5 (m05)
+
+- to be continue...
