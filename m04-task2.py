@@ -19,9 +19,9 @@ while True:
             print(str(e))
 
     if pil == 1:
-        a = input("\nMasukkan Nama Siswa\t\t\t: ").title()
-        b = input("Masukkan Jenis Kelamin Siswa (L/P)\t: ").upper()
-        c = input("Tingkatan Siswa (SD/SMP/SMA)\t\t: ").upper()
+        a = input("\nMasukkan Nama Siswa\t\t\t: ").title().lstrip().rstrip()
+        b = input("Masukkan Jenis Kelamin Siswa (L/P)\t: ").upper().lstrip().rstrip()
+        c = input("Tingkatan Siswa (SD/SMP/SMA)\t\t: ").upper().lstrip().rstrip()
         try:
             murid = Murid(a,b,c)
             temp = murid.nama
