@@ -261,13 +261,15 @@ class Parent:
 
     def cekNama(self, nama):
         try:
+            if nama.isspace() or nama == "":
+                raise ValueError
             nama = nama.split()
             for i in nama:
                 if not i.isalpha():
-                    raise ValueError("Nama hanya boleh terdiri dari huruf dan spasi")
+                    raise ValueError
             return True
-        except ValueError as e:
-            print(str(e))
+        except ValueError:
+            print("Nama hanya boleh terdiri dari huruf dan spasi")
 
     def cekNoHp(self, noHp):
         try:
@@ -322,13 +324,15 @@ class Murid:
 
     def cekNama(self, nama):
         try:
+            if nama.isspace() or nama == "":
+                raise ValueError
             nama = nama.split()
             for i in nama:
                 if not i.isalpha():
-                    raise ValueError("Nama hanya boleh terdiri dari huruf dan spasi")
+                    raise ValueError
             return True
-        except ValueError as e:
-            print(str(e))
+        except ValueError:
+            print("Nama hanya boleh terdiri dari huruf dan spasi")
 
     def cekJenisKel(self, jenisKel):
         try:
