@@ -1,6 +1,6 @@
 import abc
 
-#M01
+# M01
 
 class mahasiswa:
     def __init__(self,nama,nim,jenisKel,jurusan,email):
@@ -81,7 +81,7 @@ class card:
         print("| {:<46} |".format(" "))
         print("_"*50)
 
-#M02
+# M02
 
 class NaomiPrisella:
     def __init__(self, noInduk, nama, jenisKelamin, noHp):
@@ -144,7 +144,7 @@ class botolMinumBayi(RyanRussell):
         self.props.append(mili)
         self.traits.append("Isi Produk (ml)")
 
-#M03
+# M03
 
 class AyamGoreng(metaclass=abc.ABCMeta):
     @abc.abstractproperty
@@ -238,12 +238,14 @@ class MuridSMA(Coconut, Banana):
     def cetakData(self):
         for i in range(len(self.data)):
             print("{:<20}:{:>15}".format(self.prompt[i],self.data[i]))
-            
+
+
 #M04
 
 class Parent:
     def __init__(self, kode, nama, noHp):
         if(self.cekKode(kode) and self.cekNama(nama) and self.cekNoHp(noHp)):
+            nama = " ".join(nama.split())
             self.kode = kode
             self.nama = nama
             self.noHp = noHp
@@ -261,15 +263,13 @@ class Parent:
 
     def cekNama(self, nama):
         try:
-            if nama.isspace() or nama == "":
-                raise ValueError
             nama = nama.split()
             for i in nama:
                 if not i.isalpha():
-                    raise ValueError
+                    raise ValueError("Nama hanya boleh terdiri dari huruf dan spasi")
             return True
-        except ValueError:
-            print("Nama hanya boleh terdiri dari huruf dan spasi")
+        except ValueError as e:
+            print(str(e))
 
     def cekNoHp(self, noHp):
         try:
@@ -306,6 +306,7 @@ class MahasiswaM4(Parent):
 class Murid:
     def __init__(self, nama, jenisKel, tingkatan):
         if(self.cekNama(nama) and self.cekJenisKel(jenisKel) and self.cekTingkatan(tingkatan)):
+            nama = " ".join(nama.split())
             biaya = ["300.000", "500.000", "700.000", "1.000.000"]
             jam = ["2", "2", "1", "1"]
             tingkat = ["SD", "SMP", "SMA"]
@@ -324,15 +325,13 @@ class Murid:
 
     def cekNama(self, nama):
         try:
-            if nama.isspace() or nama == "":
-                raise ValueError
             nama = nama.split()
             for i in nama:
                 if not i.isalpha():
-                    raise ValueError
+                    raise ValueError("Nama hanya boleh terdiri dari huruf dan spasi")
             return True
-        except ValueError:
-            print("Nama hanya boleh terdiri dari huruf dan spasi")
+        except ValueError as e:
+            print(str(e))
 
     def cekJenisKel(self, jenisKel):
         try:
@@ -362,3 +361,129 @@ class Murid:
         for x,y in teks.items():
             print("| {:<15}:{:>20} |".format(x,y))
         print("-"*40)
+
+# M05
+
+class MahasiswaM5:
+    def __init__(self, nim, nama, noHp):
+        if(self.ceknim(nim) and self.cekNama(nama) and self.cekNoHp(noHp)):
+            nama = " ".join(nama.split())
+            self.nim = nim
+            self.nama = nama
+            self.noHp = noHp
+            print("\nInput data berhasil.")
+        else:
+            print("Ada kesalahan input. Coba lagi.")
+
+    def ceknim(self, nim):
+        try:
+            if not nim.isnumeric():
+                raise ValueError("NIM harus terdiri dari angka")
+            if len(nim) != 9:
+                raise ValueError("NIM harus memiliki panjang 9 karakter")
+            return True
+        except ValueError as e:
+            print(str(e))
+
+    def cekNama(self, nama):
+        try:
+            if nama.isspace() or nama == "":
+                raise ValueError
+            nama = nama.split()
+            for i in nama:
+                if not i.isalpha():
+                    raise ValueError
+            return True
+        except ValueError:
+            print(("Nama hanya boleh terdiri dari huruf dan spasi"))
+
+    def cekNoHp(self, noHp):
+        try:
+            if noHp[0] != "+":
+                raise ValueError("No HP harus ada tanda '+' di awal")
+            if not noHp[1:].isnumeric():
+                raise ValueError("No HP hanya boleh terdiri dari angka")
+            if len(noHp) < 8 or len(noHp) > 15:
+                raise ValueError("No HP hanya boleh 8 sampai 15 karakter")            
+            return True
+        except ValueError as e:
+            print(str(e))
+
+class NaomiPrisellaM5_1:
+    def __init__(self):
+        self.isi = []
+    
+    def pemasukanData(self, n):
+        for i in range(n):
+            while True:
+                print("\nMahasiswa ke-"+str(i+1))
+                print("="*(13+len(str(i))))
+                print()
+                a = input("Masukkan NIM Mahasiswa\t\t: ")
+                b = input("Masukkan Nama Mahasiswa\t\t: ").title().lstrip().rstrip()
+                c = input("Masukkan Nomor HP Mahasiswa\t: ")
+                try:
+                    temp1 = MahasiswaM5(a, b, c)
+                    temp2 = temp1.nama
+                    self.isi.append(temp1)
+                    break
+                except AttributeError:
+                    pass
+
+    def absensi(self, item):
+        idx = 1
+        for i in self.isi:
+            if i.nim == item:
+                print("Mahasiswa tersebut ditemukan pada posisi",idx)
+                return
+            idx += 1
+        print("Mahasiswa tersebut tidak ditemukan")
+
+class ProdukM5:
+    def __init__(self, kode, nama, stok):
+        if self.cekStok(stok):
+            self.kode = kode
+            self.nama = nama
+            self.stok = int(stok)
+            print("\nProduk berhasil diinput\n")
+    
+    def cekStok(self,stok):
+        try:
+            n = int(stok)
+            if n < 0:
+                raise ValueError
+            return True
+        except ValueError:
+            print("\nJumlah stok harus berupa angka di atas 0. Coba lagi.\n")
+            return False
+
+class NaomiPrisellaM5_2:
+    def __init__(self):
+        self.isi = []
+    
+    def pemasukanData(self, iterable):
+        for item in iterable:
+            while True:
+                try:
+                    temp1 = ProdukM5(item[0], item[1], input(f"Masukkan jumlah stok item {item[0]} ({item[1]}) bulan ini : "))
+                    temp2 = temp1.nama
+                    self.isi.append(temp1)
+                    break
+                except AttributeError:
+                    pass
+    
+    def pencarianStok(self, cari):
+        produk = iter(self.isi)
+        while True:
+            try:
+                temp = next(produk)
+                if temp.nama.lower() == cari or temp.kode.lower() == cari:
+                    print(f"\nSisa stok {temp.nama} bulan ini:",temp.stok)
+                    if temp.stok < 10:
+                        print("Sudah mau habis. Segera restock.")
+                    else:
+                        print("Masih banyak sisa produk ini.")
+                    break
+            except StopIteration:
+                print("Tidak ada produk dengan nama tersebut.")
+                break            
