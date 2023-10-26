@@ -36,4 +36,6 @@ notes
 
 ### week 5 (m05)
 
-- to be continue...
+- iterator pattern (using for in array, iter(), and next())
+- task 1 = making a simple program to input and find the data of students using for
+- task 2 = making a simple program to input and find the remaining stock of an item in a warehouse system, notifying the user if the stock of the item is low
