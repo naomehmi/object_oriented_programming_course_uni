@@ -582,11 +582,11 @@ class NaomiPrisellaM6_2:
                 break
 
     def sisaDikit(self):
-        x = iter(self.barang)
+        temp = [i for i in self.barang if i["Jumlah Barang"] < 10]
+        x = iter(temp)
         while True:
             try:
                 i = next(x)
-                if i["Jumlah Barang"] < 10:
-                    print(f"Sisa barang {i['Nama']} hanya {i['Jumlah Barang']}. Udah mau habis.")
+                print(f"Sisa barang {i['Nama']} hanya {i['Jumlah Barang']}. Udah mau habis.")
             except StopIteration:
                 break
