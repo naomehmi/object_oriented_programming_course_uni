@@ -42,4 +42,11 @@ notes
 
 ### week 6 (m06)
 
-- coming soon...
+- lists, sets, dictionaries
+- comprehension
+- task 1 = storing dictionaries containing the student ID, name, and phone number of students into a list. There are methods for validating data before appending them into the list, sorting the list based on student ID, printing/showing all the data, and searching for a specific student
+- task 2 = storing dictionaries containing the product code, name, and stock of products into a list. There are methods for validating data before appending them into the list, sorting the list based on product code, printing/showing all the data, and showing the products that are almost out of stock (less than 10)
+
+### week 7 (m07)
+
+coming soon...
