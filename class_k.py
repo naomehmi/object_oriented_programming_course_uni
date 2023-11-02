@@ -487,3 +487,106 @@ class NaomiPrisellaM5_2:
             except StopIteration:
                 print("Tidak ada produk dengan nama tersebut.")
                 break            
+
+# M06
+
+class NaomiPrisellaM6_1:
+    mahasiswa = []
+
+    def inputData(self, nim, nama, noHp):
+        try:
+            if len(nim) != 9 or not nim.isnumeric():
+                raise ValueError("NIM harus terdiri dari angka dan memiliki 9 karakter")
+            if len(self.mahasiswa) > 0 and nim in [i["NIM"] for i in self.mahasiswa]:
+                raise ValueError("NIM tersebut sudah pernah diinput")
+            if nama == "":
+                raise ValueError("Nama hanya boleh terdiri dari huruf dan spasi")
+            nama = nama.split()
+            for i in nama:
+                if not i.isalpha():
+                    raise ValueError("Nama hanya boleh terdiri dari huruf dan spasi")
+            nama = " ".join(nama)
+            if len(noHp) > 15 and len(noHp) < 8:
+                raise ValueError("Nomor HP harus memiliki 8 - 15 karakter")
+            if noHp[0] != '+':
+                raise ValueError("Nomor HP harus dimulai dari '+'")
+            if not noHp[1:].isnumeric():
+                raise ValueError("Nomor HP hanya boleh terdiri dari angka")
+            self.mahasiswa.append({
+                "NIM" : nim,
+                "Nama" : nama,
+                "Nomor HP" : noHp
+            })
+            print("\nData berhasil diinput :D\n")
+            return True
+        except ValueError as e:
+            print()
+            print(str(e))
+            print("Input ulang lagi.\n")
+            return False
+    
+    def cetakData(self):
+        idx = 1
+        self.urutkanData()
+        for i in self.mahasiswa:
+            print("Mahasiswa ke-"+str(idx))
+            for x,y in i.items():
+                print(x,":",y)
+            print()
+            idx += 1
+
+    def urutkanData(self):
+        self.mahasiswa = sorted(self.mahasiswa, key = lambda x : x["NIM"])
+
+    def pencarianData(self, cari):
+        for i in self.mahasiswa:
+            if cari == i["NIM"]:
+                print("\nDitemukan!")
+                for x,y in i.items():
+                    print(x,":",y)
+                return
+        print("\nMahasiswa dengan NIM tersebut tidak ada di database")
+
+class NaomiPrisellaM6_2:
+    barang = []
+
+    def inputData(self, kode, nama, jlh):
+        try:
+            if int(jlh) < 0:
+                raise ValueError
+            self.barang.append({
+                "Kode" : kode,
+                "Nama" : nama,
+                "Jumlah Barang" : jlh
+            })
+            print("Data berhasil diinput")
+            return True
+        except ValueError:
+            print("Jumlah barang tidak boleh angka negatif\n")
+            return False
+        
+    def urutkanData(self):
+        self.barang = sorted(self.barang, key= lambda x : x["Kode"])
+
+    def cetakData(self):
+        print("Berikut data yang telah diurutkan:\n")
+        x = iter(self.barang)
+        while True:
+            try:
+                i = next(x)
+                print("Kode Produk :",i["Kode"])
+                print("Nama Produk :",i["Nama"])
+                print("Jumlah Barang :",i["Jumlah Barang"])
+                print()
+            except StopIteration:
+                break
+
+    def sisaDikit(self):
+        x = iter(self.barang)
+        while True:
+            try:
+                i = next(x)
+                if i["Jumlah Barang"] < 10:
+                    print(f"Sisa barang {i['Nama']} hanya {i['Jumlah Barang']}. Udah mau habis.")
+            except StopIteration:
+                break
