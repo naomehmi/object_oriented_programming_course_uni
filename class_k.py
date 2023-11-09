@@ -590,3 +590,128 @@ class NaomiPrisellaM6_2:
                 print(f"Sisa barang {i['Nama']} hanya {i['Jumlah Barang']}. Udah mau habis.")
             except StopIteration:
                 break
+# M07
+
+class NaomiPrisellaM7_1:
+    mahasiswa = []
+
+    def validasi(self, nim, nama, noHp):
+        try:
+            if len(nim) != 9 or not nim.isnumeric():
+                raise ValueError("NIM harus terdiri dari angka dan memiliki 9 karakter")
+            if len(self.mahasiswa) > 0 and nim in [i["NIM"] for i in self.mahasiswa]:
+                raise ValueError("NIM tersebut sudah pernah diinput")
+            if nama == "":
+                raise ValueError("Nama hanya boleh terdiri dari huruf dan spasi")
+            nama = nama.split()
+            for i in nama:
+                if not i.isalpha():
+                    raise ValueError("Nama hanya boleh terdiri dari huruf dan spasi")
+            nama = " ".join(nama)
+            if len(noHp) > 15 and len(noHp) < 8:
+                raise ValueError("Nomor HP harus memiliki 8 - 15 karakter")
+            if noHp[0] != '+':
+                raise ValueError("Nomor HP harus dimulai dari '+'")
+            if not noHp[1:].isnumeric():
+                raise ValueError("Nomor HP hanya boleh terdiri dari angka")
+            return True
+        except ValueError as e:
+            print()
+            print(str(e))
+            print("Input ulang lagi.\n")
+            return False
+
+    def absensi(self):
+        nim = ''
+        nama = ''
+        noHp = ''
+        while True:
+            no = yield nim
+            nim = no
+            name = yield nama
+            nama = name
+            phone = yield noHp
+            noHp = phone
+            self.mahasiswa.append({
+                "NIM" : nim,
+                "Nama" : nama,
+                "Nomor HP" : noHp
+            })
+
+    def cekNim(self,nim):
+        if nim in [i['NIM'] for i in self.mahasiswa]:
+            return False
+        return True
+    
+    def pencarianData(self, cari):
+        for i in self.mahasiswa:
+            if cari == i["NIM"]:
+                print("\nDitemukan!")
+                for x,y in i.items():
+                    print(x,":",y)
+                return
+        print("\nMahasiswa dengan NIM tersebut tidak ada di database")
+
+    def cetakData(self):
+        idx = 1
+        self.urutkanData()
+        for i in self.mahasiswa:
+            print("Mahasiswa ke-"+str(idx))
+            for x,y in i.items():
+                print(x,":",y)
+            print()
+            idx += 1
+
+    def urutkanData(self):
+        self.mahasiswa = sorted(self.mahasiswa, key = lambda x : x["NIM"])
+
+class NaomiPrisellaM7_2:
+    barang = []
+
+    def inputData(self):
+        jenis = ''
+        kode = ''
+        nama = ''
+        stok = ''
+        while True:
+            tipe = yield jenis
+            jenis = tipe
+            code = yield kode
+            kode = code
+            name = yield nama
+            nama = name
+            stock = yield stok
+            stok = stock
+            self.barang.append({
+                "Jenis" : jenis,
+                "Kode" : kode,
+                "Nama" : nama,
+                "Jumlah Barang" : stok
+            })
+        
+    def urutkanData(self):
+        self.barang = sorted(self.barang, key= lambda x : x["Jenis"])
+
+    def cetakData(self):
+        print("Berikut data yang telah diurutkan:\n")
+        x = iter(self.barang)
+        while True:
+            try:
+                i = next(x)
+                print("Jenis Produk :",i["Jenis"])
+                print("Kode Produk :",i["Kode"])
+                print("Nama Produk :",i["Nama"])
+                print("Jumlah Barang :",i["Jumlah Barang"])
+                print()
+            except StopIteration:
+                break
+
+    def sisaDikit(self):
+        temp = [i for i in self.barang if i["Jumlah Barang"] < 10]
+        x = iter(temp)
+        while True:
+            try:
+                i = next(x)
+                print(f"Sisa barang {i['Nama']} hanya {i['Jumlah Barang']}. Udah mau habis.")
+            except StopIteration:
+                break   
