@@ -714,4 +714,4 @@ class NaomiPrisellaM7_2:
                 i = next(x)
                 print(f"Sisa barang {i['Nama']} hanya {i['Jumlah Barang']}. Udah mau habis.")
             except StopIteration:
-                break   
+                break
