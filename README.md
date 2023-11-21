@@ -49,4 +49,16 @@ notes
 
 ### week 7 (m07)
 
-coming soon...
+- yield, generators
+- using `.send()`, `next()` to send user input to the object.
+- storing input data into a list of dictionaries
+- task 1 = making a simple program to store data of college students (student ID number, name, and phone number), printing all of them, and a search feature based on their student ID number
+- task 2 = making a simple program to store data of products, printing all of them, checking products with low stocks
+
+### week 8
+
+- exam week, skipped
+
+### week 9
+
+- coming soon...
