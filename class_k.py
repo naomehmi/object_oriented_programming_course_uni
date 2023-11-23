@@ -715,3 +715,74 @@ class NaomiPrisellaM7_2:
                 print(f"Sisa barang {i['Nama']} hanya {i['Jumlah Barang']}. Udah mau habis.")
             except StopIteration:
                 break
+
+# M09
+
+class NaomiPrisellaM9:
+    def __init__(self, noInduk, nama, jenisKelamin):
+        self.noInduk = noInduk
+        self.nama = nama
+        self.jenisKelamin = jenisKelamin
+
+class MahasiswaM9:
+    def __init__(self, wrapper):
+        self.wrapper = wrapper
+    
+    def detail(self, jurusan, email):
+        self.wrapper.jurusan = jurusan
+        self.wrapper.email = email
+
+    def cetak(self):
+        print("| {:<23}:{:>42} |".format("NIM Mahasiswa",self.wrapper.noInduk))
+        print("| {:<23}:{:>42} |".format("Nama Mahasiswa",self.wrapper.nama))
+        print("| {:<23}:{:>42} |".format("Jurusan Mahasiswa",self.wrapper.jurusan))
+        print("| {:<23}:{:>42} |".format("Jenis Kelamin Mahasiswa",self.wrapper.jenisKelamin))
+        print("| {:<23}:{:>42} |".format("Email Mahasiswa",self.wrapper.email))
+
+class DosenM9:
+    def __init__(self, wrapper):
+        self.wrapper = wrapper
+
+    def detail(self, jabatan, noHp):
+        self.wrapper.jabatan = jabatan
+        self.wrapper.noHp = noHp
+
+    def cetak(self):
+        print("| {:<23}:{:>42} |".format("NIP Dosen",self.wrapper.noInduk))
+        print("| {:<23}:{:>42} |".format("Nama Dosen",self.wrapper.nama))
+        print("| {:<23}:{:>42} |".format("Jabatan Dosen",self.wrapper.jabatan))
+        print("| {:<23}:{:>42} |".format("Jenis Kelamin Dosen",self.wrapper.jenisKelamin))
+        print("| {:<23}:{:>42} |".format("Nomor HP Dosen",self.wrapper.noHp))
+
+class AbsensiM9:
+    def __init__(self):
+        self.mahasiswa = []
+        self.dosen = []
+        self.total = 0
+
+    def hadir(self, org):
+        self.mahasiswa.append(org) if org.__class__.__name__ == "MahasiswaM9" else self.dosen.append(org)
+        self.total += 1
+
+    def cetak(self):
+        print("-"*70)
+        print("|{: ^68}|".format("Dosen"))
+        print("-"*60)
+        for i in range(len(self.dosen)):
+            print("| {:<67}|".format("Dosen ke-"+str(i+1)))
+            self.dosen[i].cetak()
+            print("-"*70)
+        if self.dosen == []:
+            print("|{: ^68}|".format("Tidak ada dosen yang hadir pada acara"))
+            print("-"*70)
+        print("|{: ^68}|".format("Mahasiswa"))
+        print("-"*70)
+        for i in range(len(self.mahasiswa)):
+            print("| {:<67}|".format("Mahasiswa ke-"+str(i+1)))
+            self.mahasiswa[i].cetak()
+            print("-"*70)
+        if self.mahasiswa == []:
+            print("|{: ^68}|".format("Tidak ada mahasiswa yang hadir pada acara"))
+            print("-"*70)
+        print("| {:<23}{:^1}{:>42} |".format("Jumlah Pengunjung",":",self.total))
+        print("-"*70)
