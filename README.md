@@ -61,4 +61,6 @@ notes
 
 ### week 9
 
-- coming soon...
+- design patterns (decorator pattern, observer pattern, strategy pattern)
+- recording the attendance of college students and lecturers in a university event. i used the decorator pattern to differentiate the college students (MahasiswaM9 class) and lecturers (DosenM9 class), then i used an observer pattern to append attendees into 2 lists based on whether they are college students (mahasiswa) or lecturers (dosen).
+- i also validated the user input, (e.g if their name contains numbers, phone numbers being too short, etc) 
