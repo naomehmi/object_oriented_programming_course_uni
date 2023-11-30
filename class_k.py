@@ -590,6 +590,7 @@ class NaomiPrisellaM6_2:
                 print(f"Sisa barang {i['Nama']} hanya {i['Jumlah Barang']}. Udah mau habis.")
             except StopIteration:
                 break
+
 # M07
 
 class NaomiPrisellaM7_1:
@@ -786,3 +787,78 @@ class AbsensiM9:
             print("-"*70)
         print("| {:<23}{:^1}{:>42} |".format("Jumlah Pengunjung",":",self.total))
         print("-"*70)
+
+# M10
+
+class NaomiPrisellaM10:
+    _instance = None
+    _Absensi = {"Dosen" : dict(), "Mahasiswa" : dict()}
+    _idx = 0
+    def __init__(self):
+        self.__dict__ = self._Absensi
+
+class HadirAcaraM10(NaomiPrisellaM10):
+    def __init__(self, tipe, **data):
+        NaomiPrisellaM10.__init__(self)
+        self._Absensi[tipe].update({self._idx : data})
+        self._idx += 1
+    
+    def cetakAbsensi(self):
+        print("{:^70}".format("REKAP ABSENSI"))
+        print()
+        print("-"*70)
+        print("|{: ^68}|".format("Dosen"))
+        print("-"*70)
+        for i in self._Absensi["Dosen"].values():
+            for x, y in i.items():
+                key = x
+                if x != "NIP":
+                    for i in range(1,len(x)):
+                        if x[i] == x[i].upper():
+                            key = x[:i] + " " + x[i:]
+                            break
+                key += " Dosen"
+                print("| {:<23}:{:>42} |".format(key,y))
+            print("-"*70)
+        if len(self._Absensi["Dosen"]) == 0:
+            print("|{: ^68}|".format("Tidak ada dosen yang hadir pada acara"))
+            print("-"*70)
+        print("|{: ^68}|".format("Mahasiswa"))
+        print("-"*70)
+        for i in self._Absensi["Mahasiswa"].values():
+            for x, y in i.items():
+                key = x
+                if x != "NIM":
+                    for i in range(1,len(x)):
+                        if x[i] == x[i].upper():
+                            key = x[:i] + " " + x[i:]
+                            break
+                key += " Mahasiswa"
+                print("| {:<23}:{:>42} |".format(key,y))
+            print("-"*70)
+        if len(self._Absensi["Mahasiswa"]) == 0:
+            print("|{: ^68}|".format("Tidak ada mahasiswa yang hadir pada acara"))
+            print("-"*70)
+
+        total = 0
+        total = sum([1 for i in self._Absensi["Dosen"].keys()] + [1 for i in self._Absensi["Mahasiswa"].keys()])
+        print("| {:<23}{:^1}{:>42} |".format("Jumlah Pengunjung",":",total))
+        print("-"*70)
+        print()
+
+    def cariAtauCekData(self, nama, tipe):
+        for i in self._Absensi[tipe].values():
+            print()
+            if i["Nama"] == nama:
+                print(tipe.capitalize() + " ditemukan!\n")
+                for x, y in i.items():
+                    key = x
+                    if x != "NIM" and x != "NIP":
+                        for i in range(1,len(x)):
+                            if x[i] == x[i].upper():
+                                key = x[:i] + " " + x[i:]
+                                break
+                    key += " " + tipe
+                    print("{:<23}:{:>42}".format(key,y))
+                return
+        print(tipe.capitalize() + " Tidak ditemukan pada database.")
