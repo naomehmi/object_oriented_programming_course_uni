@@ -68,6 +68,7 @@ notes
 
 - design patterns pt. 2 (template pattern, singleton pattern)
 - same objective as week 9, but this time i used singleton pattern (i did follow how the module did it, but idk i'm hesitant whether it's correct or not)
+- this time i validated the data before inputting it into the `self._Absensi` dictionary, which contains the attendees of the event
 
 ### week 11
 
