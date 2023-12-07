@@ -862,3 +862,28 @@ class HadirAcaraM10(NaomiPrisellaM10):
                     print("{:<23}:{:>42}".format(key,y))
                 return
         print(tipe.capitalize() + " Tidak ditemukan pada database.")
+
+# M11
+
+class A:
+    ruang = "T1/L2"
+    matkul = "Kalkulus"
+
+class B:
+    ruang = "T3/L2"
+    matkul = "Pemrograman"
+
+class C:
+    ruang  = "T5/L2"
+    matkul = "Bahasa Ingrris"
+
+class Receptionist:
+    def __init__(self):
+        self._rekap = [A(), B(), C()]
+    
+    def rekapAbsensi(self):
+        for kelas in self._rekap:
+            print("Kelas  :", kelas.__class__.__name__)
+            print("Ruang  :", kelas.ruang)
+            print("Matkul :", kelas.matkul)
+            print()
