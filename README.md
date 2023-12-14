@@ -75,8 +75,11 @@ notes
 - design patterns pt. 3 (adapter pattern, facade pattern, command pattern)
 - um, the task for this week was basically just printing out the class's name, room, and subject. so i think i implemented the facade pattern(?) by making three different classes containing their name, room, and subject then combined them into another class called `Receptionist`. pls it's way too simple im hesitating to consider it as an implementation of the facade design pattern
 
-### week 12
+### week 12 (m12)
 
 - design patterns pt. 4 (abstract factory pattern, composite pattern)
 - the task for this week was so also really simple. the lecturer wanted us to total the enrollment fee of a new university student by using object oriented programming. i made a class that has an attribute that is a list of all the fees, then the total would be calculated with a function called `returnPrice()`. based on the module, i implemented the composite design pattern, but then again im also hesitant about it because it's wayyyy too simple
 
+### week 13 (m13)
+
+to be continued...
