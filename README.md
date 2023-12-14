@@ -55,21 +55,28 @@ notes
 - task 1 = making a simple program to store data of college students (student ID number, name, and phone number), printing all of them, and a search feature based on their student ID number
 - task 2 = making a simple program to store data of products, printing all of them, checking products with low stocks
 
-### week 8
+### week 8 (m08)
 
 - exam week, skipped
 
-### week 9
+### week 9 (m09)
 
 - design patterns (decorator pattern, observer pattern, strategy pattern)
 - recording the attendance of college students and lecturers in a university event. i used the decorator pattern to differentiate the college students (MahasiswaM9 class) and lecturers (DosenM9 class), then i used an observer pattern to append attendees into 2 lists based on whether they are college students (mahasiswa) or lecturers (dosen).
 
-### week 10
+### week 10 (m10)
 
 - design patterns pt. 2 (template pattern, singleton pattern)
-- same objective as week 9, but this time i used singleton pattern (i did follow how the module did it, but idk i'm hesitant whether it's correct or not)
+- same objective as week 9, but this time i used singleton pattern (i followed how the module did it, but idk i'm hesitant whether it's correct or not)
 - this time i validated the data before inputting it into the `self._Absensi` dictionary, which contains the attendees of the event
 
-### week 11
+### week 11 (m11)
 
-- coming soon
+- design patterns pt. 3 (adapter pattern, facade pattern, command pattern)
+- um, the task for this week was basically just printing out the class's name, room, and subject. so i think i implemented the facade pattern(?) by making three different classes containing their name, room, and subject then combined them into another class called `Receptionist`. pls it's way too simple im hesitating to consider it as an implementation of the facade design pattern
+
+### week 12
+
+- design patterns pt. 4 (abstract factory pattern, composite pattern)
+- the task for this week was so also really simple. the lecturer wanted us to total the enrollment fee of a new university student by using object oriented programming. i made a class that has an attribute that is a list of all the fees, then the total would be calculated with a function called `returnPrice()`. based on the module, i implemented the composite design pattern, but then again im also hesitant about it because it's wayyyy too simple
+
