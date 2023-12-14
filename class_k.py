@@ -887,3 +887,40 @@ class Receptionist:
             print("Ruang  :", kelas.ruang)
             print("Matkul :", kelas.matkul)
             print()
+
+# M12
+
+class BiayaCoolyeah(metaclass=abc.ABCMeta):
+    @abc.abstractmethod
+    def returnPrice(self):
+        pass
+
+class Total(BiayaCoolyeah):
+    def __init__(self, contents):
+        self.contents = contents
+    def returnPrice(self):
+        price = 0
+        for item in self.contents:
+            price += item.returnPrice()
+        return price
+
+class UangPendaftaran(BiayaCoolyeah):
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+    def returnPrice(self):
+        return self.price
+
+class KuliahPertama(BiayaCoolyeah):
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+    def returnPrice(self):
+        return self.price
+
+class uangMPT(BiayaCoolyeah):
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+    def returnPrice(self):
+        return self.price
