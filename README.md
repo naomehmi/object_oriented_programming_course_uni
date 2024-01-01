@@ -82,4 +82,9 @@ notes
 
 ### week 13 (m13)
 
-to be continued...
+- testing (unittest, pytest)
+- the task for this week was to simply test any program from the previous meetings and check whether the result is correct or not, i chose week 9
+
+### week 14 (m14)
+
+- coming soon
