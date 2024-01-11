@@ -924,3 +924,77 @@ class uangMPT(BiayaCoolyeah):
         self.price = price
     def returnPrice(self):
         return self.price
+
+# M14
+
+class Attendance:
+    def __init__(self):
+        self.ppl = [[],[]]
+
+class DosenM14:
+    def __init__(self, nip, nama, jabatan, jenisKel, noHp):
+        self.nip = nip
+        self.nama = nama
+        self.jabatan = jabatan
+        self.jenisKel = jenisKel
+        self.noHp = noHp
+
+class MahasiswaM14:
+    def __init__(self, nim, nama, jurusan, jenisKel, email):
+        self.nim = nim
+        self.nama = nama
+        self.jurusan = jurusan
+        self.jenisKel = jenisKel
+        self.email = email
+
+class AddMore(metaclass=abc.ABCMeta):
+    @abc.abstractmethod
+    def tambah(self, person, attend):
+        pass
+
+class AddStudent(AddMore):
+    def tambah(self, person, attend):
+        attend.ppl[1].append(person)
+
+class AddDosen(AddMore):
+    def tambah(self,person, attend):
+        attend.ppl[0].append(person)
+
+class Cetak(metaclass=abc.ABCMeta):
+    @abc.abstractmethod
+    def display(self, person):
+        pass
+
+class CetakMahasiswa(Cetak):
+    def display(self, person):
+        attr = [person.nim, person.nama, person.jurusan, person.jenisKel, person.email]
+        desc = ["NIM", "Nama", "Jurusan", "Jenis Kelamin", "Email"]
+        for i in range(5): print("| {:<23}:{:>42} |".format(desc[i] + " Mahasiswa",attr[i]))
+
+class CetakDosen(Cetak):
+     def display(self, person):
+        attr = [person.nip, person.nama, person.jabatan, person.jenisKel, person.noHp]
+        desc = ["NIP", "Nama", "Jabatan", "Jenis Kelamin", "Nomor HP"]
+        for i in range(5): print("| {:<23}:{:>42} |".format(desc[i] + " Dosen",attr[i]))
+
+class JumlahManusia:
+    def hitung(self, attend):
+        return len(attend.ppl[0]) + len(attend.ppl[1])
+    
+class PrintAll:
+    def cetak(self, attend):
+        className = ["Dosen", "Mahasiswa"]
+        print("-"*70)
+        print("|{:^68}|".format("REKAP ABSENSI"))
+        print("-"*70)
+        for i in range(2):
+            print("|{: ^68}|".format(className[i]))
+            print("-"*70)
+            for j in range(len(attend.ppl[i])):
+                print("| {:<67}|".format(f"{className[i]} ke-"+str(j+1)))
+                CetakDosen().display(attend.ppl[i][j]) if i == 0 else CetakMahasiswa().display(attend.ppl[i][j])
+                print("-"*70)
+            if attend.ppl[i] == []:
+                print("|{: ^68}|".format(f"Tidak ada {className[i].lower()} yang hadir pada acara")),print("-"*70)
+        print("| {:<23}{:^1}{:>42} |".format("Jumlah Pengunjung",":",JumlahManusia().hitung(attend)))
+        print("-"*70)
