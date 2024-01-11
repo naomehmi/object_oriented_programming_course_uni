@@ -88,7 +88,7 @@ notes
 ### week 14 (m14)
 
 - solid pt. 1 (SRP - Single Responsibility Principle, OCP - Open Closed Principle)
-- the task for this week was to redo m1's code so it applies to SRP and OCP
+- the task for this week was to redo m1-task1's code so it applies to SRP and OCP
 
 ### week 15 (m15)
 
