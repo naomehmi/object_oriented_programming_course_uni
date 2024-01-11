@@ -94,6 +94,6 @@ notes
 
 - coming soon...
 
-### week 16
+### week 16 (m16)
 
 - final exams week, skipped
