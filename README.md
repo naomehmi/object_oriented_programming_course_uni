@@ -83,8 +83,13 @@ notes
 ### week 13 (m13)
 
 - testing (unittest, pytest)
-- the task for this week was to simply test any program from the previous meetings and check whether the result is correct or not, i chose week 9
+- the task for this week was to simply test any program from the previous meetings (using unittest or pytest) and check whether the results are correct or not. i chose week 9 and checked whether the total amount of attendees are correct or not
 
 ### week 14 (m14)
 
-- coming soon
+- solid pt. 1 (SRP - Single Responsibility Principle, OCP - Open Closed Principle)
+- the task for this week was to redo m1's code so it applies to SRP and OCP
+
+### week 15 (m15)
+
+- coming soon...
