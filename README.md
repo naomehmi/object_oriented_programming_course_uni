@@ -4,7 +4,7 @@ This repository contains my code for my Object Oriented Programming (OOP) course
 
 notes
 - `class_k` = contains every class that is used for each meeting (labeled as _#M[x]_ in the file to separate classes used per meeting)
-- `m[x]_task[y]` = _m[x]_ is the xth meeting of the course, and _task[y]_ is the yth task of the meeting
+- `m[x]-task[y]` = _m[x]_ is the xth meeting of the course, and _task[y]_ is the yth task of the meeting
 - prompts and some variable names are in Indonesian
 - some class names are pretty random because of the instructions given by each assignment :v
 
