@@ -57,7 +57,7 @@ notes
 
 ### week 8 (m08)
 
-- exam week, skipped
+- midterms week, skipped
 
 ### week 9 (m09)
 
@@ -93,3 +93,7 @@ notes
 ### week 15 (m15)
 
 - coming soon...
+
+### week 16
+
+- final exams week, skipped
