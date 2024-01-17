@@ -998,3 +998,78 @@ class PrintAll:
                 print("|{: ^68}|".format(f"Tidak ada {className[i].lower()} yang hadir pada acara")),print("-"*70)
         print("| {:<23}{:^1}{:>42} |".format("Jumlah Pengunjung",":",JumlahManusia().hitung(attend)))
         print("-"*70)
+
+# M15
+        
+class DosenM15:
+    def __init__(self, nip, nama,  jeniskel, jabatan, noHp):
+        self.nip = nip
+        self.nama = nama
+        self.jabatan = jabatan
+        self.jenisKel = jeniskel
+        self.noHp = noHp
+
+class MahasiswaM15:
+    def __init__(self, nim, nama,  jenisKel,jurusan, email):
+        self.nim = nim
+        self.nama = nama
+        self.jurusan = jurusan
+        self.jenisKel = jenisKel
+        self.email = email
+    
+class PrintManager(abc.ABC):
+    @abc.abstractmethod
+    def printSelf(self):
+        pass
+
+class AddPeople(abc.ABC):
+    @abc.abstractmethod
+    def tambah(self, person):
+        pass
+
+class CountPeople(abc.ABC):
+    @abc.abstractmethod
+    def jumlah(self):
+        pass
+
+class KumpulanOrang(abc.ABC):
+    @property
+    @abc.abstractmethod
+    def isi(self):
+        pass
+
+class KumpulanDosen(KumpulanOrang):
+    isi = []
+
+class KumpulanMahasiswa(KumpulanOrang):
+    isi = []
+
+class AbsensiManager(PrintManager, AddPeople, CountPeople):
+    def __init__(self, dosen, mahasiswa):
+        self.ppl = [dosen , mahasiswa]
+
+    def printSelf(self):
+        className = ["Dosen", "Mahasiswa"]
+        print("{:^70}".format("LAPORAN ABSENSI ACARA COOLEAYAH"))
+        print("{:^70}".format("="*31))
+        print()
+        print("-"*70)
+        for i in range(2):
+            print("|{:^68}|".format(className[i]))
+            print("-"*70)
+            for j in range(len(self.ppl[i].isi)):
+                print("| {:<67}|".format(f"{className[i]} ke-"+str(j+1)))
+                CetakDosen().display(self.ppl[i].isi[j]) if i == 0 else CetakMahasiswa().display(self.ppl[i].isi[j])
+                print("-"*70)
+            if self.ppl[i].isi == []:
+                print("|{:^68}|".format(f"Tidak ada {className[i].lower()} yang hadir pada acara."))
+                print("-"*70)
+        print("| {:<23}:{:>42} |".format("Jumlah Pengunjung",self.jumlah()))
+        print("-"*70)
+
+    def tambah(self, person):
+        if isinstance(person, DosenM15): self.ppl[0].isi.append(person)
+        else: self.ppl[1].isi.append(person)
+
+    def jumlah(self):
+        return len(self.ppl[0].isi) + len(self.ppl[1].isi)
