@@ -1,6 +1,6 @@
 # object_oriented_programming_course_uni
 
-This repository contains my code for my Object Oriented Programming (OOP) course in uni. (in progress)
+This repository contains my code for my Object Oriented Programming (OOP) course in uni. (completed)
 
 notes
 - `class_k` = contains every class that is used for each meeting (labeled as _#M[x]_ in the file to separate classes used per meeting)
@@ -88,11 +88,12 @@ notes
 ### week 14 (m14)
 
 - solid pt. 1 (SRP - Single Responsibility Principle, OCP - Open Closed Principle)
-- the task for this week was to redo m1-task1's code so it applies to SRP and OCP
+- the task for this week was to redo m1-task1's code so it applies to SRP and OCP. I tried separating everything into a different class so it adheres to SRP. The `AddMore` and `Cetak` are abstract classes so I can make two different classes where I can add students and another to add lecturers, I think it applies to OCP
 
 ### week 15 (m15)
 
-- coming soon...
+- solid pt.2 (LSP - Liskov Substitution Principle, ISP, Interface Segregation Principle, DIP = Dependency Inversion Principle)
+- the task for this week was to redo m1-task1's code so it applies to LSP, ISP, and DIP.
 
 ### week 16 (m16)
 
